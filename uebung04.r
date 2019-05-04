@@ -25,19 +25,22 @@ summary(dataset)  # Gibt eine Zusammenfassung über das Dataframe aus.
 # Aufgabe 1c
 # Stellen Sie die Variable customer.package in einer passenden Grafik dar und interpretieren Sie
 # diese im Sachzusammenhang.
-barplot(as.matrix(dplyr::select(dataset, "lifetime.value", "terminate")))
+plot(dataset$customer.package)
 
 # Aufgabe 1d
 # Stellen Sie die Variable lifetime.value in einer passenden Grafik dar unter interpretieren Sie
 # diese im Sachzusammenhang.
+plot(dataset$lifetime.value, type="o")
 
 # Aufgabe 1e
-# Stellen Sie die Variable last.order.rime in einer passenden Grafik dar und interpretieren Sie
+# Stellen Sie die Variable last.order.time in einer passenden Grafik dar und interpretieren Sie
 # diese im Sachzusammenhang.
+
 
 # Aufgabe 1f
 # Stellen Sie die Variable terminate in einer passenden Grafik dar und interpretieren Sie
 # diese im Sachzusammenhang.
+
 
 # Aufgabe 1g
 # Lassen Sie sich ledeglich die Kunden mit dem customer.package "prime" anzeigen.
@@ -64,5 +67,6 @@ View(customersPlaceOfResidence)
 # lifetime.value anzeigen. Dabei sollen die Datensätze nach dem lifetime.value sortiert werden.
 sortedRichTerminatedCustomers <- dataset %>%
   filter(terminate == "TRUE") %>%
-  select(customer.package, lifetime.value)
+  select(customer.package, lifetime.value) %>%
+  arrange(lifetime.value)
 View(sortedRichTerminatedCustomers)
